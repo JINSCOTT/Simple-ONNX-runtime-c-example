@@ -55,7 +55,9 @@ void OnnxInferenceBase::SetInputDemensions(std::vector<int64_t> Dims) {
 
 bool YOLOv7::PreProcess(cv::Mat frame, std::vector<Ort::Value>& inputTensor) {
 	// this will make the input into 1,3,640,640
-	blob = cv::dnn::blobFromImage(frame, 1 / 255.0, cv::Size(640, 640), (0, 0, 0), false, false);
+	float dw = (640-frame.cols)/2.0f, dh = (640 - frame.rows) / 2.0f;
+	cv::copyMakeBorder(frame, frame, roundf(dh - 0.1), roundf(dh + 0.1), 0, 0, cv::BORDER_CONSTANT, cv::Scalar(114,114,114));  //# add border
+	blob = cv::dnn::blobFromImage(frame, 1 / 255.0, cv::Size(640, 640), (0, 0, 0), true, false);
 	size_t input_tensor_size = blob.total();
 	try {
 		inputTensor.emplace_back(Ort::Value::CreateTensor<float>(memory_info, (float*)blob.data, input_tensor_size, input_node_dims.data(), input_node_dims.size()));

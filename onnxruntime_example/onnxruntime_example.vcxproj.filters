@@ -21,9 +21,30 @@
     <ClCompile Include="onnxruntime_inference.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="tracks.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="kalman.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="utils.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="tracks.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="onnxruntime_inference.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="labels.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="kalman.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="utils.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
